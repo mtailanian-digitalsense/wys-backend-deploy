@@ -1,0 +1,51 @@
+version: "3"
+services:
+  module-m2:
+    build: ./sw-backend-module-m2
+    image: ac3e/wys-module-m2:1
+    ports:
+        - "8082:8082"
+    depends_on:
+      - "db"
+    environment: 
+        DB_USER: "wys"
+        DB_PASSWORD: "rac3e/07"
+        DB_IP_ADDRESS: "db"
+        DB_PORT: "3306"
+        DB_SCHEMA: "wys"
+  module-project:
+    build: ./sw-backend-module-project
+    image: ac3e/wys-module-project:1
+    ports:
+        - "8081:8082"
+    depends_on:
+      - "db"
+    environment: 
+        DB_USER: "wys"
+        DB_PASSWORD: "rac3e/07"
+        DB_IP_ADDRESS: "db"
+        DB_PORT: "3306"
+        DB_SCHEMA: "wys"
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'wys'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'wys'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'rac3e/07'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'rac3e/07'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
