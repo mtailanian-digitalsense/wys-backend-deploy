@@ -28,6 +28,20 @@ services:
         DB_IP_ADDRESS: "db"
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
+  module-space:
+    build: ./sw-backend-module-space
+    restart: always
+    image: ac3e/wys-module-space:1
+    ports:
+        - "8083:8083"
+    depends_on:
+      - "db"
+    environment: 
+        DB_USER: "wys"
+        DB_PASSWORD: "rac3e/07"
+        DB_IP_ADDRESS: "db"
+        DB_PORT: "3306"
+        DB_SCHEMA: "wys"
   db:
     image: mysql:5.7
     restart: always
