@@ -14,12 +14,17 @@ services:
         DB_IP_ADDRESS: "db"
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
+        SPACES_MODULE_IP: "module-space"
+        SPACES_MODULE_PORT: "8083"
+        SPACES_MODULE_API_CREATE: "/api/spaces/create"
+
+
   module-project:
     build: ./sw-backend-module-project
     restart: always
     image: ac3e/wys-module-project:1
     ports:
-        - "8081:8082"
+        - "8081:8081"
     depends_on:
       - "db"
     environment: 
