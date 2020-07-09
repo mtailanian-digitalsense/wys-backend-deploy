@@ -17,6 +17,9 @@ services:
         SPACES_MODULE_IP: "module-space"
         SPACES_MODULE_PORT: "8083"
         SPACES_MODULE_API_CREATE: "/api/spaces/create"
+        PROJECTS_MODULE_HOST: "module-project"
+        PROJECTS_MODULE_PORT: "8081"
+        PROJECTS_MODULE_API_GET: "/api/projects/"
 
 
   module-project:
