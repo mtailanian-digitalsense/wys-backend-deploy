@@ -20,7 +20,18 @@ services:
         PROJECTS_MODULE_HOST: "module-project"
         PROJECTS_MODULE_PORT: "8081"
         PROJECTS_MODULE_API_GET: "/api/projects/"
-
+  
+  module-filestorage:
+    build: ./sw-backend-module-filestorage
+    restart: always
+    image: ac3e/wys-module-filestorage:1
+    ports:
+        - "8085:8085"
+    volumes:
+      - filestorage-volume:/app/data/
+    environment: 
+        FS_LOCATION_PATH: "/app/data/"
+        FS_DNS_URL: 'http://wysapi.ac3eplatforms.com'
 
   module-project:
     build: ./sw-backend-module-project
@@ -73,3 +84,4 @@ services:
 # Names our volume
 volumes:
   my-db:
+  filestorage-volume:  
