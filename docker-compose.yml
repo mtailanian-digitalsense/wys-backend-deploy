@@ -47,6 +47,7 @@ services:
         DB_IP_ADDRESS: "db"
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
+        BUILDINGS_MODULE_API_LOCS_GET: "/api/buildings/locations/"
   
   module-building:
     build: ./sw-backend-module-building
@@ -62,6 +63,7 @@ services:
         DB_IP_ADDRESS: "db"
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
+        PROJECTS_MODULE_API: "/api/projects/"
   
   module-space:
     build: ./sw-backend-module-space
