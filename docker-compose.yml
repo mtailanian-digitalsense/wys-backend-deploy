@@ -64,6 +64,9 @@ services:
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
         PROJECTS_MODULE_API: "/api/projects/"
+        PROJECTS_MODULE_HOST: "module-project"
+        PROJECTS_MODULE_PORT: "8081"
+
   
   module-space:
     build: ./sw-backend-module-space
