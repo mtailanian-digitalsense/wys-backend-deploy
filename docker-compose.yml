@@ -47,6 +47,8 @@ services:
         DB_IP_ADDRESS: "db"
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
+        BUILDINGS_MODULE_HOST: "module-building"
+        BUILDINGS_MODULE_PORT: "8084"
         BUILDINGS_MODULE_API_LOCS_GET: "/api/buildings/locations/"
   
   module-building:
