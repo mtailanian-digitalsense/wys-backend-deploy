@@ -19,7 +19,7 @@ services:
         SPACES_MODULE_API_CREATE: "/api/spaces/create"
         PROJECTS_MODULE_HOST: "module-project"
         PROJECTS_MODULE_PORT: "8081"
-        PROJECTS_MODULE_API_GET: "/api/projects/"
+        PROJECTS_MODULE_API: "/api/projects/"
   
   module-filestorage:
     build: ./sw-backend-module-filestorage
