@@ -32,6 +32,28 @@ services:
     environment: 
         FS_LOCATION_PATH: "/app/data/"
         FS_DNS_URL: 'http://wysapi.ac3eplatforms.com'
+  
+  module-layout:
+    build: ./sw-backend-module-layout
+    restart: always
+    image: ac3e/wys-module-layout:1
+    ports:
+      - "8086:8086"
+    enviroment:
+      DB_USER: "wys"
+      DB_PASS: "rac3e/07"
+      DB_IP: "db"
+      DB_PORT: "3306"
+      DB_SCHEMA: "wys"
+      BUILDINGS_MODULE_HOST: "module-building"
+      BUILDINGS_MODULE_PORT: "8084"
+      BUILDINGS_MODULE_API_LOCS: "/api/buildings/locations/"
+      SPACES_MODULE_HOST: "module-space"
+      SPACES_MODULE_PORT: "8083"
+      SPACES_MODULE_API_CREATE: "/api/spaces/create"
+      PROJECTS_MODULE_HOST: "module-project"
+      PROJECTS_MODULE_PORT: "8081"
+      PROJECTS_MODULE_API: "/api/projects/"
 
   module-project:
     build: ./sw-backend-module-project
