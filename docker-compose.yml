@@ -39,7 +39,7 @@ services:
     image: ac3e/wys-module-layout:1
     ports:
       - "8086:8086"
-    enviroment:
+      environment:
       DB_USER: "wys"
       DB_PASSWORD: "rac3e/07"
       DB_IP_ADDRESS: "db"
