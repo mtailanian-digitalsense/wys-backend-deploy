@@ -48,7 +48,7 @@ services:
       BUILDINGS_MODULE_HOST: "module-building"
       BUILDINGS_MODULE_PORT: "8084"
       BUILDINGS_MODULE_API_LOCS: "/api/buildings/locations/"
-      SPACES_MODULE_HOST: "module-space"
+      SPACES_MODULE_IP: "module-space"
       SPACES_MODULE_PORT: "8083"
       SPACES_MODULE_API_CREATE: "/api/spaces/create"
       PROJECTS_MODULE_HOST: "module-project"
