@@ -41,8 +41,8 @@ services:
       - "8086:8086"
     enviroment:
       DB_USER: "wys"
-      DB_PASS: "rac3e/07"
-      DB_IP: "db"
+      DB_PASSWORD: "rac3e/07"
+      DB_IP_ADDRESS: "db"
       DB_PORT: "3306"
       DB_SCHEMA: "wys"
       BUILDINGS_MODULE_HOST: "module-building"
@@ -54,6 +54,9 @@ services:
       PROJECTS_MODULE_HOST: "module-project"
       PROJECTS_MODULE_PORT: "8081"
       PROJECTS_MODULE_API: "/api/projects/"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+
 
   module-project:
     build: ./sw-backend-module-project
@@ -106,6 +109,23 @@ services:
         DB_IP_ADDRESS: "db"
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
+  
+  redis:
+    image: redis
+    restart: "always"
+    ports: 
+        - 6379:6379
+  
+  module-layout-worker:
+    build: 
+      context: ./sw-backend-module-layout
+      dockerfile: Dockerfile-worker
+    image: ac3e/worker:1
+    restart: always
+    environment: 
+        REDIS_URL: "redis://redis:6379"
+        
+
   db:
     image: mysql:5.7
     restart: always
