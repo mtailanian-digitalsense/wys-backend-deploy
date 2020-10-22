@@ -110,6 +110,21 @@ services:
         DB_PORT: "3306"
         DB_SCHEMA: "wys"
   
+  module-time:
+    build: ./sw-backend-module-times
+    restart: always
+    image: ac3e/wys-module-time:1
+    ports:
+        - "8087:8087"
+    depends_on:
+      - "db"
+    environment: 
+        DB_USER: "wys"
+        DB_PASSWORD: "rac3e/07"
+        DB_IP_ADDRESS: "db"
+        DB_PORT: "3306"
+        DB_SCHEMA: "wys"
+  
   redis:
     image: redis
     restart: "always"
